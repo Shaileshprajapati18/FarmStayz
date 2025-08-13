@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "718156646751",
+    "project_id": "farmstayz-151f6",
+    "storage_bucket": "farmstayz-151f6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718156646751:android:2969c114d2300b2fe18eea",
+        "android_client_info": {
+          "package_name": "com.example.farmstayz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718156646751-iq9qhpg8vble1teq4bemlmrilfqdmusi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.farmstayz",
+            "certificate_hash": "6bfe42b2e5bf6b34315bea12a347420a466e48b3"
+          }
+        },
+        {
+          "client_id": "718156646751-kuss8nkodqaf764h9h6bf1dcvmhvc4mm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJlPAGS5cUW6c5Gg7sodnM2jKCKwfxU2I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718156646751-kuss8nkodqaf764h9h6bf1dcvmhvc4mm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

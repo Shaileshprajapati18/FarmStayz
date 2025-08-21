@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RetrofitClient {
     private static Retrofit retrofit = null;
-    private static final String BASE_URL = "http://192.168.153.1:8081/"; // Use 192.168.1.100 for physical device
+    private static final String BASE_URL = "http://192.168.153.1:8082/";
 
     public static ApiService getApiService() {
         if (retrofit == null) {

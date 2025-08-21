@@ -1,7 +1,6 @@
 package com.example.farmstayz.Adapter;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
-import com.example.farmstayz.Actvity.DetailsActivity;
+import com.example.farmstayz.Activity.DetailsActivity;
 import com.example.farmstayz.Model.Farmhouse;
 import com.example.farmstayz.R;
 
@@ -130,6 +129,8 @@ public class FarmhouseAdapter extends RecyclerView.Adapter<FarmhouseAdapter.Farm
         holder.cardView.setOnClickListener(v -> {
             Intent intent = new Intent(activity, DetailsActivity.class);
 
+            intent.putExtra("id", farmhouse.getId());
+            intent.putExtra("userUid", farmhouse.getUserUid());
             intent.putExtra("name", farmhouse.getName());
             intent.putExtra("maxGuestCapacity", farmhouse.getMaxGuestCapacity());
             intent.putExtra("address", farmhouse.getAddress());

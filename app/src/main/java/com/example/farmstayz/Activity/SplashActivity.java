@@ -1,4 +1,4 @@
-package com.example.farmstayz.Actvity;
+package com.example.farmstayz.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -39,7 +39,6 @@ public class SplashActivity extends AppCompatActivity {
         db = FirebaseDatabase.getInstance();
         prefs = getSharedPreferences("UserPrefs", MODE_PRIVATE);
 
-        // Add 2-second delay before checking authentication
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             FirebaseUser currentUser = mAuth.getCurrentUser();
             if (currentUser != null) {
@@ -50,7 +49,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 2000); // 2-second delay
+        }, 2000);
 
     }
 
@@ -58,7 +57,6 @@ public class SplashActivity extends AppCompatActivity {
         Intent intent = new Intent(SplashActivity.this, AvailableFarmHouseActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-        // Load data from SharedPreferences
         String username = prefs.getString("username_" + user.getUid(), user.getDisplayName() != null ? user.getDisplayName() : "User");
         String email = prefs.getString("email_" + user.getUid(), user.getEmail() != null ? user.getEmail() : "");
         String photoUrl = prefs.getString("photoUrl_" + user.getUid(), user.getPhotoUrl() != null ? user.getPhotoUrl().toString() : "");
@@ -67,7 +65,6 @@ public class SplashActivity extends AppCompatActivity {
         intent.putExtra("email", email);
         intent.putExtra("photoUrl", photoUrl);
 
-        // Load saved Bitmap for email/password users
         Bitmap savedBitmap = loadBitmapFromInternalStorage(user.getUid());
         if (savedBitmap != null) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -75,11 +72,9 @@ public class SplashActivity extends AppCompatActivity {
             intent.putExtra("profileBitmap", baos.toByteArray());
         }
 
-        // Start AvailableFarmHouseActivity with SharedPreferences data
         startActivity(intent);
         finish();
 
-        // Sync with Firebase in the background
         db.getReference("users").child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -88,7 +83,6 @@ public class SplashActivity extends AppCompatActivity {
                     String firebaseEmail = dataSnapshot.child("email").getValue(String.class);
                     String firebasePhotoUrl = dataSnapshot.child("photoUrl").getValue(String.class);
 
-                    // Update SharedPreferences if Firebase data differs
                     SharedPreferences.Editor editor = prefs.edit();
                     if (firebaseUsername != null && !firebaseUsername.equals(username)) {
                         editor.putString("username_" + user.getUid(), firebaseUsername);

@@ -8,7 +8,7 @@
     android:background="#F3F4F6"
     android:id="@+id/main"
     android:fitsSystemWindows="true"
-    tools:context=".Actvity.ProfileActivity">
+    tools:context=".Activity.ProfileActivity">
 
     <!-- Header -->
     <LinearLayout

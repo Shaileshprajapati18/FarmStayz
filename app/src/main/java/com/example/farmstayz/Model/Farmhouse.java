@@ -9,6 +9,9 @@ public class Farmhouse implements Serializable {
     @SerializedName("id")
     private Long id;
 
+    @SerializedName("userUid")
+    private String userUid;
+
     @SerializedName("name")
     private String name;
 
@@ -52,6 +55,9 @@ public class Farmhouse implements Serializable {
         return id;
     }
 
+    public String getUserUid() {
+        return userUid;
+    }
     public Integer getBathrooms() {
         return bathrooms;
     }

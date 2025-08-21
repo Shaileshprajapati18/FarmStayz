@@ -1,4 +1,4 @@
-package com.example.farmstayz.Actvity;
+package com.example.farmstayz.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -51,6 +51,7 @@ public class DetailsActivity extends AppCompatActivity {
     private SharedPreferences prefs;
     private ViewPager2 viewPagerImages;
     private ImageSliderAdapter imageSliderAdapter;
+    String userId="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,8 +94,11 @@ public class DetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         Intent intent = getIntent();
 
+        Long id = intent.getLongExtra("id", -1);
+        String userUid = intent.getStringExtra("userUid");
         String name = intent.getStringExtra("name");
         String location = intent.getStringExtra("location");
         String description = intent.getStringExtra("description");
@@ -132,6 +136,16 @@ public class DetailsActivity extends AppCompatActivity {
             }
         });
 
+        bookNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(DetailsActivity.this,BookNowActivity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("userUid",userUid);
+                intent.putExtra("maxGuestCapacity",guests);
+                startActivity(intent);
+            }
+        });
         tvTitle.setText(name);
         tvLocation.setText(location);
         tvRating.setText(rating + "");
@@ -144,7 +158,6 @@ public class DetailsActivity extends AppCompatActivity {
         tvPricePerDay.setText(perDayPrice);
         tvPricePerPerson.setText(perPersonPrice);
 
-        // Set up ViewPager with ImageSliderAdapter
         imageSliderAdapter = new ImageSliderAdapter(this, images != null ? images : new ArrayList<>());
         viewPagerImages.setAdapter(imageSliderAdapter);
 
@@ -163,7 +176,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        String userId = currentUser != null ? currentUser.getUid() : null;
+         userId = currentUser != null ? currentUser.getUid() : null;
 
         if (userId == null) {
            // profile.setImageResource(R.drawable.ic_user);

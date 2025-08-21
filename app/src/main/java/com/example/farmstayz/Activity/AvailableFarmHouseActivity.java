@@ -1,4 +1,4 @@
-package com.example.farmstayz.Actvity;
+package com.example.farmstayz.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,7 +9,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -39,7 +38,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import okhttp3.ResponseBody;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -69,6 +68,9 @@ public class AvailableFarmHouseActivity extends AppCompatActivity {
         profile = findViewById(R.id.profile);
         recyclerView = findViewById(R.id.recyclerView);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        Log.d(TAG,"firebase user" +uid);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -126,7 +128,7 @@ public class AvailableFarmHouseActivity extends AppCompatActivity {
 
                 if (response.isSuccessful() && response.body() != null) {
                     FarmhouseListResponse farmhouseListResponse = response.body();
-                    // Log raw JSON response
+
                     try {
                         String rawJson = new Gson().toJson(farmhouseListResponse);
                         Log.d(TAG, "Raw JSON response: " + rawJson);

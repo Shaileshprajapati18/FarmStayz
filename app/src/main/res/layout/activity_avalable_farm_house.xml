@@ -8,7 +8,7 @@
     android:background="#F3F4F6"
     android:id="@+id/main"
     android:fitsSystemWindows="true"
-    tools:context=".Actvity.AvailableFarmHouseActivity">
+    tools:context=".Activity.AvailableFarmHouseActivity">
 
     <LinearLayout
         android:id="@+id/header_layout"
@@ -51,7 +51,6 @@
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
-    <!-- Scrollable Content -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -1,4 +1,4 @@
-package com.example.farmstayz.Actvity;
+package com.example.farmstayz.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

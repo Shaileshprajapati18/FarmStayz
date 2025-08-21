@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F4F6">
+
+    <LinearLayout
+        android:id="@+id/header_layout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/header_background"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="6dp"
+        android:paddingEnd="16dp">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/gradient_back_arrow"
+            android:padding="7dp"
+            android:layout_marginStart="5dp"
+            android:tint="@color/black"
+            android:elevation="5dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_arrow_back"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Booking Now"
+            android:textColor="#4CAF50"
+            android:layout_marginStart="10dp"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bookNowBtn"
+        android:layout_below="@id/header_layout"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etCustomerPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter your phone number"
+                android:textColorHint="#805B5A5A"
+                android:textColor="@android:color/black"
+                android:inputType="phone"
+                android:background="@drawable/rounded_edittext_bg"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select date"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etDocDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="select date"
+                android:textColorHint="#805B5A5A"
+                android:drawableEnd="@drawable/calendar_month_24px"
+                android:textColor="@android:color/black"
+                android:inputType="none"
+                android:drawableTint="#9D9D9D"
+                android:background="@drawable/rounded_edittext_bg"
+                android:padding="12dp"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of guests"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/etNumberOfGuests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter number of guests"
+                android:textColorHint="#805B5A5A"
+                android:textColor="@android:color/black"
+                android:inputType="number"
+                android:background="@drawable/rounded_edittext_bg"
+                android:padding="12dp"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/bookNowBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Book Now"
+        android:layout_alignParentBottom="true"
+        android:background="@color/green_accent"
+        android:textColor="#FFFFFF" />
+
+</RelativeLayout>
